@@ -1,0 +1,1 @@
+# Sway on Arch - Configuration
