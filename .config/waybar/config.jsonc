@@ -24,6 +24,9 @@
         "memory",
         "battery"
     ],
+
+    // TODO: add notification daemon or similar
+    
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,

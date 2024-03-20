@@ -16,3 +16,4 @@ text-clear-color=888888
 ring-clear-color=811740
 separator-color=00000000
 font=Roboto Mono
+grace=60
