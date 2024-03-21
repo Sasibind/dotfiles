@@ -125,6 +125,12 @@ exec swayidle -w \
 
     # code
     bindsym $mod+q exec code
+
+    # grim
+    bindsym Print exec grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png
+
+    # grim + slurp
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png
 #
 # Moving around:
 #
