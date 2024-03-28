@@ -79,6 +79,8 @@ exec swayidle -w \
     natural_scroll enabled
     middle_emulation enabled
   }
+
+  input "type:pointer" accel_profile flat
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -119,7 +121,7 @@ exec swayidle -w \
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Application shortcuts:
-
+#
     # firefox
     bindsym $mod+Shift+f exec firefox
 
@@ -131,6 +133,18 @@ exec swayidle -w \
 
     # grim + slurp
     bindsym $mod+Shift+s exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png
+#
+# Volume and brightness controls:
+#
+    # Volume controls with pactl
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SINK@ toggle
+
+    # Brghtness controls with brightnessctl
+    bindsym XF86MonBrightnessUp exec brightnessctl s +10%
+    bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 #
 # Moving around:
 #

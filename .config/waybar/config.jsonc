@@ -22,7 +22,8 @@
         "network",
         "cpu",
         "memory",
-        "battery"
+        "battery",
+        "custom/mako"
     ],
 
     // TODO: add notification daemon or similar
@@ -130,6 +131,8 @@
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
+        "tooltip-format-wifi": "Manage connections with nmtui",
+        "tooltip-format-disconnected": "Manage connections with nmtui",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
@@ -161,5 +164,12 @@
             "",
             ""
         ]
-    }
+    },
+    // TODO: configure mako timeout and colors
+    "custom/mako": {
+        "exec": "makoctl toggle",
+        "tooltip": "Toggle Mako notifications",
+        "return-type": "json",
+        "interval": 5
+    }    
 }
