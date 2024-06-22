@@ -7,6 +7,7 @@
 
 alias ls='ls --color=always'
 alias grep='grep --color=auto'
+alias dafny='~/.vscode-oss/extensions/dafny-lang.ide-vscode-3.3.0/out/resources/4.6.0/github/dafny/dafny'
 # Define colors
 glow_color="\[\033[38;2;254;207;153m\]"   # Custom glow color
 red_color="\[\033[38;2;223;110;129m\]"     # Custom red color
