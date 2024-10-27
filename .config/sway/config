@@ -23,8 +23,8 @@ set $menu wofi
 #
 # Setting gaps for windows:
 #
-    gaps outer 10px
-    gaps inner 5px
+    gaps outer 5px
+    gaps inner 3px
 #
 # Window border rules:
 #
@@ -43,7 +43,7 @@ set $menu wofi
     client.background               $bg
 
     # Rounded corners
-    corner_radius 10
+    corner_radius 2
 #
 # Putting these at the top so that it's easier to find and modify.
 
