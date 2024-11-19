@@ -10,8 +10,8 @@ alias grep='grep --color=auto'
 alias dafny='~/.vscode-oss/extensions/dafny-lang.ide-vscode-3.3.0/out/resources/4.6.0/github/dafny/dafny'
 # Define colors
 glow_color="\[\033[38;2;254;207;153m\]"   # Custom glow color
-red_color="\[\033[38;2;223;110;129m\]"     # Custom red color
-reset_color="\[\033[0m\]"                   # Reset color
+red_color="\[\033[38;2;223;110;129m\]"    # Custom red color
+reset_color="\[\033[0m\]"                 # Reset color
 
 # Modify PS1
 PS1="${glow_color}\u${reset_color}@${red_color}\h ${reset_color}in ${glow_color}\W\n⤷ ${red_color}\$ ${reset_color}"
