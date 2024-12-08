@@ -2,14 +2,15 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 34, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "sway/workspaces",
         "sway/mode",
-        "sway/scratchpad"
+        "sway/scratchpad",
+        "custom/capslock"
     ],
     "modules-center": [
         "clock"
@@ -45,6 +46,10 @@
         ],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
+    },
+    "custom/capslock": {
+        "exec":"exec ~/.config/waybar/scripts/caps_lock.sh",
+        "format":"A {}"
     },
     "clock": {
         // "timezone": "Asia/Kolkata",
@@ -110,8 +115,7 @@
                 "",
                 ""
             ]
-        },
-        "on-click": "pavucontrol"
+        }
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -154,9 +158,10 @@
     },
     // TODO: configure mako timeout and colors
     "custom/mako": {
-        "exec": "makoctl toggle",
+        "exec": "makoctl list",
         "tooltip": "Toggle Mako notifications",
         "return-type": "json",
+        "format": "{}",
         "interval": 5
     }    
 }

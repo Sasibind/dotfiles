@@ -75,6 +75,7 @@ button:hover {
     border-radius: 5px;
 }
 
+#custom-capslock,
 #clock,
 #battery,
 #bluetooth,
@@ -194,6 +195,7 @@ label:focus {
     background-color: transparent;
 }
 
+/* 
 #privacy {
     padding: 0;
 }
@@ -213,4 +215,9 @@ label:focus {
 
 #privacy-item.audio-out {
     background-color: #0069d4;
+}
+ */
+
+#custom-capslock {
+    background-color: #000000;
 }
