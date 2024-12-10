@@ -183,6 +183,28 @@ exec swayidle -w \
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+	# Keybinding to move into the next/previos workspace, creating a new one if needed and wrapping around after workspace 10/1
+	bindsym $mod+Period exec swaymsg -t get_workspaces | \
+	jq -r '[.[] | select (.focused == true)] .[0].num' | \
+	awk '{if ($1 == 10) print 1; else print $1 + 1}' | \
+	xargs -I {} swaymsg "workspace number {}"
+
+	bindsym $mod+Comma exec swaymsg -t get_workspaces | \
+	jq -r '[.[] | select (.focused == true)] .[0].num' | \
+	awk '{if ($1 == 1) print 10; else print $1 - 1}' | \
+	xargs -I {} swaymsg "workspace number {}"
+
+    # Keybinding to move the focused container to the next/previous workspace, creating a new one if needed and wrapping around after workspace 10/1
+	bindsym $mod+Shift+Period exec swaymsg -t get_workspaces | \
+	jq -r '[.[] | select (.focused == true)] .[0].num' | \
+	awk '{if ($1 == 10) print 1; else print $1 + 1}' | \
+	xargs -I {} swaymsg "move container to workspace number {}"
+
+	bindsym $mod+Shift+Comma exec swaymsg -t get_workspaces | \
+	jq -r '[.[] | select (.focused == true)] .[0].num' | \
+	awk '{if ($1 == 1) print 10; else print $1 - 1}' | \
+	xargs -I {} swaymsg "move container to workspace number {}"
 #
 # Layout stuff:
 #

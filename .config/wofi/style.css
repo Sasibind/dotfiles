@@ -6,10 +6,14 @@
 
 window
 {
-    font-size: 16px;
-    font-family: 'Roboto Slab';
+    font-size: 14px;
+    font-family: 'Roboto Mono';
     background-color: #460029;
     color: #eff1f5;
+}
+
+#img {
+	padding-right: 8px;
 }
 
 #entry

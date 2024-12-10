@@ -10,7 +10,8 @@
         "sway/workspaces",
         "sway/mode",
         "sway/scratchpad",
-        "custom/capslock"
+        "custom/spotify"
+        // "custom/capslock"
     ],
     "modules-center": [
         "clock"
@@ -18,12 +19,13 @@
     "modules-right": [
         "idle_inhibitor",
         "bluetooth",
+        "custom/capslock",
         "pulseaudio",
         "network",
-        "cpu",
-        "memory",
-        "battery",
-        "custom/mako"
+        // "cpu",
+        // "memory",
+        "battery"
+        // "custom/mako"
     ],
 
     // TODO: add notification daemon or similar
@@ -39,9 +41,8 @@
     },
     "sway/scratchpad": {
         "format": "{icon} {count}",
-        "show-empty": false,
+        "show-empty": true,
         "format-icons": [
-            "",
             ""
         ],
         "tooltip": true,
@@ -49,7 +50,7 @@
     },
     "custom/capslock": {
         "exec":"exec ~/.config/waybar/scripts/caps_lock.sh",
-        "format":"A {}"
+        "format":" {}"
     },
     "clock": {
         // "timezone": "Asia/Kolkata",
@@ -115,7 +116,8 @@
                 "",
                 ""
             ]
-        }
+        },
+        "on-click":"exec pavucontrol"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -156,12 +158,20 @@
             ""
         ]
     },
+    "custom/spotify" : {
+		"exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+    	"format": " {}",
+    	"return-type": "json",
+    	"on-click": "playerctl play-pause",
+    	"on-scroll-up": "playerctl previous",
+    	"on-scroll-down": "playerctl next"
+    }
     // TODO: configure mako timeout and colors
-    "custom/mako": {
-        "exec": "makoctl list",
-        "tooltip": "Toggle Mako notifications",
-        "return-type": "json",
-        "format": "{}",
-        "interval": 5
-    }    
+    // "custom/mako": {
+    //     "exec": "makoctl toggle",
+    //     "tooltip": "Toggle Mako notifications",
+    //     "return-type":"json",
+    //     "format": "{}",
+    //     "interval": 5
+    // }
 }

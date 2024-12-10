@@ -75,6 +75,7 @@ button:hover {
     border-radius: 5px;
 }
 
+#custom-spotify,
 #custom-capslock,
 #clock,
 #battery,
@@ -191,10 +192,6 @@ label:focus {
     background: rgba(0, 0, 0, 0.8);
 }
 
-#scratchpad.empty {
-    background-color: transparent;
-}
-
 /* 
 #privacy {
     padding: 0;
@@ -219,5 +216,11 @@ label:focus {
  */
 
 #custom-capslock {
-    background-color: #000000;
+    background-color: #20152f;
+}
+
+#custom-spotify {
+    padding: 0 10px;
+    margin: 0 4px;
+    background-color: #121212;
 }

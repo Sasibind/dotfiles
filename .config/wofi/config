@@ -2,3 +2,6 @@ mode=drun
 location=2
 height=30%
 width=25%
+allow_images=true
+image_size=14
+no_actions=true
