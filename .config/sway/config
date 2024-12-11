@@ -44,6 +44,9 @@ set $menu wofi
 
     # Rounded corners
     corner_radius 2
+
+    # Window transparency
+    exec "/usr/share/swayfx/scripts/inactive-windows-transparency.py"
 #
 # Putting these at the top so that it's easier to find and modify.
 
