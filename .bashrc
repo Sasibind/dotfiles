@@ -5,9 +5,19 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# some aliases for use
 alias ls='ls --color=always'
 alias grep='grep --color=auto'
 alias dafny='~/.vscode-oss/extensions/dafny-lang.ide-vscode-3.3.0/out/resources/4.6.0/github/dafny/dafny'
+
+# adding editor variable
+export $EDITOR  vim
+
+# wayland copy terminal output
+wlc() {
+	cat "$1" | wl-copy
+}
+
 # Define colors
 glow_color="\[\033[38;2;254;207;153m\]"   # Custom glow color
 red_color="\[\033[38;2;223;110;129m\]"    # Custom red color

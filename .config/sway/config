@@ -14,6 +14,8 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu wofi
+# If you use a terminal file manager, your preferred one
+set $fm lf
 
 ### Customizations
 #
@@ -46,7 +48,7 @@ set $menu wofi
     corner_radius 2
 
     # Window transparency
-    exec "/usr/share/swayfx/scripts/inactive-windows-transparency.py"
+    exec_always "/usr/share/swayfx/scripts/inactive-windows-transparency.py"
 #
 # Putting these at the top so that it's easier to find and modify.
 
@@ -57,9 +59,14 @@ output * bg ~/.config/wallpaper.jpg fill
 #
 # Example configuration:
 #
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+output eDP-1 resolution 1920x1080 position 0 0
+# output HDMI-A-2 resolution 1920x1080 position 1920 0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+#
+# Screen mirroring if external display is available
+# exec_always " ~/.config/sway/scripts/auto-mirror.sh"
+# Will come back to this later
 
 ### Idle configuration
 #
@@ -80,12 +87,12 @@ exec swayidle -w \
 #
   input 1267:47:Elan_Touchpad
   {
-    dwt enabled
+    dwt disabled
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
     accel_profile "flat"
-    pointer_accel 0.5
+    pointer_accel 0
   }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -125,6 +132,10 @@ exec swayidle -w \
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # custom command for lf because why not
+    bindsym $mod+z exec $term $fm
+
 #
 # Screenshots:
 #
@@ -187,26 +198,26 @@ exec swayidle -w \
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-	# Keybinding to move into the next/previos workspace, creating a new one if needed and wrapping around after workspace 10/1
+	# Keybinding to move into the next/previos workspace, creating a new one if needed, but no wrap around from 10/1
 	bindsym $mod+Period exec swaymsg -t get_workspaces | \
 	jq -r '[.[] | select (.focused == true)] .[0].num' | \
-	awk '{if ($1 == 10) print 1; else print $1 + 1}' | \
+	awk '{if ($1 == 10) print 10; else print $1 + 1}' | \
 	xargs -I {} swaymsg "workspace number {}"
 
 	bindsym $mod+Comma exec swaymsg -t get_workspaces | \
 	jq -r '[.[] | select (.focused == true)] .[0].num' | \
-	awk '{if ($1 == 1) print 10; else print $1 - 1}' | \
+	awk '{if ($1 == 1) print 1; else print $1 - 1}' | \
 	xargs -I {} swaymsg "workspace number {}"
 
-    # Keybinding to move the focused container to the next/previous workspace, creating a new one if needed and wrapping around after workspace 10/1
+    # Keybinding to move the focused container to the next/previous workspace, creating a new one if needed, but no wrap around form 10/1
 	bindsym $mod+Shift+Period exec swaymsg -t get_workspaces | \
 	jq -r '[.[] | select (.focused == true)] .[0].num' | \
-	awk '{if ($1 == 10) print 1; else print $1 + 1}' | \
+	awk '{if ($1 == 10) print 10; else print $1 + 1}' | \
 	xargs -I {} swaymsg "move container to workspace number {}"
 
 	bindsym $mod+Shift+Comma exec swaymsg -t get_workspaces | \
 	jq -r '[.[] | select (.focused == true)] .[0].num' | \
-	awk '{if ($1 == 1) print 10; else print $1 - 1}' | \
+	awk '{if ($1 == 1) print 1; else print $1 - 1}' | \
 	xargs -I {} swaymsg "move container to workspace number {}"
 #
 # Layout stuff:
