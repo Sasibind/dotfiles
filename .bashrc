@@ -25,3 +25,8 @@ reset_color="\[\033[0m\]"                 # Reset color
 
 # Modify PS1
 PS1="${glow_color}\u${reset_color}@${red_color}\h ${reset_color}in ${glow_color}\W\n⤷ ${red_color}\$ ${reset_color}"
+export PATH=$HOME/.npm-global/bin:$PATH
+export PATH="$HOME/flutter/bin:$PATH"
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH
+
